@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playlist-recommender
+  labels:
+    app: gabifonseca-playlist-recommender
+spec:
+  replicas: 3  # Número de réplicas dos pods
+  selector:
+    matchLabels:
+      app: gabifonseca-playlist-recommender
+  template:
+    metadata:
+      labels:
+        app: gabifonseca-playlist-recommender  # Rótulo para selecionar os pods no serviço
+    spec:
+      containers:
+      - name: ml-container
+        image: gabifonseca/ml-container:1.0  # Imagem do contêiner ML
+        ports:
+        - containerPort: 5000  # Porta que o contêiner usa
+      - name: frontend-container
+        image: gabifonseca/frontend-container:1.0  # Imagem do contêiner frontend
+        ports:
+        - containerPort: 5000  # Porta que o contêiner usa
