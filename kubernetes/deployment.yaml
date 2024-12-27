@@ -5,21 +5,26 @@ metadata:
   labels:
     app: gabifonseca-playlist-recommender
 spec:
-  replicas: 3  # Número de réplicas dos pods
+  replicas: 3  
   selector:
     matchLabels:
       app: gabifonseca-playlist-recommender
   template:
     metadata:
       labels:
-        app: gabifonseca-playlist-recommender  # Rótulo para selecionar os pods no serviço
+        app: gabifonseca-playlist-recommender 
     spec:
       containers:
       - name: ml-container
-        image: gabifonseca/ml-container:1.0  # Imagem do contêiner ML
+        image: gabifonseca/ml-container:1.0  
         ports:
-        - containerPort: 5000  # Porta que o contêiner usa
+        - containerPort: 5000  
+        env:
+        - name: DATA_URL
+        - value: "https://raw.githubusercontent.com/FonsecaGabriela/TP2_CLOUD_COMPUTING/main/data/2023_spotify_ds1.csv"
       - name: frontend-container
-        image: gabifonseca/frontend-container:1.0  # Imagem do contêiner frontend
+        image: gabifonseca/frontend-container:1.0 
         ports:
-        - containerPort: 5000  # Porta que o contêiner usa
+        - containerPort: 5000
+
+
