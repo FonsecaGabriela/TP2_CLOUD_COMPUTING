@@ -42,3 +42,4 @@ with open(os.path.join(output_dir, 'association_rules.pkl'), 'wb') as f:
     pickle.dump(rules, f)
 
 print("Modelo gerado e salvo com sucesso!")
+exit(0)
