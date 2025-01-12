@@ -14,12 +14,13 @@ spec:
       labels:
         app: gabrielafonseca-playlist-recommender
     spec:
-      containers:
+      initContainers:
         - name: ml-container
           image: gabifonseca/ml-container:1.0
           env:
             - name: DATA_URL
               value: "https://raw.githubusercontent.com/FonsecaGabriela/TP2_CLOUD_COMPUTING/main/data/2023_spotify_ds1.csv"
+      containers:
         - name: frontend-container
           image: gabifonseca/frontend-container:1.0
           ports:
