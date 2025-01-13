@@ -1,0 +1,11 @@
+project: gabrielafonseca-project
+source:
+  repoURL: https://github.com/FonsecaGabriela/TP2_CLOUD_COMPUTING
+  path: kubernetes
+  targetRevision: HEAD
+destination:
+  server: https://kubernetes.default.svc
+  namespace: gabrielafonseca
+syncPolicy:
+  automated:
+    selfHeal: true
