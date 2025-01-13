@@ -22,6 +22,6 @@ spec:
               value: "https://raw.githubusercontent.com/FonsecaGabriela/TP2_CLOUD_COMPUTING/main/data/2023_spotify_ds2.csv"
       containers:
         - name: frontend-container
-          image: gabifonseca/frontend-container:1.0
+          image: gabifonseca/frontend-container:2.0
           ports:
             - containerPort: 5000
