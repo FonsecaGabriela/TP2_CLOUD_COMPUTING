@@ -18,8 +18,6 @@ def load_model():
 # Inicializar o modelo
 app.model = load_model()
 
-# print("Modelo carregado:", app.model)
-
 # Definir o endpoint /api/recommend
 @app.route('/api/recommend', methods=['POST'])
 def recommend():
@@ -46,17 +44,13 @@ def recommend():
             for rule in app.model:
                 antecedent = rule[0]  # Acessa o antecedente da regra
                 consequent = rule[1]  # Acessa o consequente da regra
-                # print(f"Regra: {antecedent} -> {consequent}")
                 if song in antecedent:
                     recommended_songs.extend(consequent)
         
         # Garantir que não haja duplicatas nas recomendações
         recommended_songs = list(set(recommended_songs))
-        
-        # Exibir as músicas recomendadas para depuração
-        print("Músicas recomendadas:", recommended_songs)
-        
-        # Definir a resposta com a versão do código e data de atualização do modelo
+                
+    
         response = {
             'songs': recommended_songs,
             'version': '1.0',  
